@@ -1,7 +1,7 @@
-// Feature 2 - Second Commit
+// Feature 3 - Third Commit
 // Branch: feature-add
-// Previous Commit: Feature 1
-// This commit adds new user and mobile functionality.
+// Previous Commit: Feature 2
+// This commit adds update, delete and filter functionality.
 
 // User Data
 
@@ -50,6 +50,15 @@ const users = [
     role: "Developer",
     status: "Active",
     email: "chandan@gmail.com"
+  },
+  {
+    id: 6,
+    name: "Rohit",
+    age: 24,
+    city: "Lucknow",
+    role: "Developer",
+    status: "Active",
+    email: "rohit@gmail.com"
   }
 ];
 
@@ -94,6 +103,16 @@ const mobiles = [
     storage: "256GB",
     ram: "8GB",
     discount: 2000,
+    status: "Available"
+  },
+  {
+    id: 105,
+    brand: "Redmi",
+    model: "Redmi A4",
+    price: 8499,
+    storage: "128GB",
+    ram: "4GB",
+    discount: 500,
     status: "Available"
   }
 ];
@@ -146,33 +165,79 @@ function getActiveUsers() {
   return users.filter(user => user.status === "Active");
 }
 
+// Feature 7: Update User Details
+
+function updateUser(userId, updatedData) {
+  const user = users.find(item => item.id === userId);
+
+  if (!user) {
+    return "User not found";
+  }
+
+  Object.assign(user, updatedData);
+
+  return "User updated successfully";
+}
+
+// Feature 8: Delete User
+
+function deleteUser(userId) {
+  const index = users.findIndex(user => user.id === userId);
+
+  if (index === -1) {
+    return "User not found";
+  }
+
+  users.splice(index, 1);
+
+  return "User deleted successfully";
+}
+
+// Feature 9: Update Mobile Price
+
+function updateMobilePrice(mobileId, newPrice) {
+  const mobile = mobiles.find(item => item.id === mobileId);
+
+  if (!mobile) {
+    return "Mobile not found";
+  }
+
+  mobile.price = newPrice;
+
+  return "Mobile price updated successfully";
+}
+
+// Feature 10: Filter Mobiles By Maximum Price
+
+function filterMobiles(maxPrice) {
+  return mobiles.filter(mobile => mobile.price <= maxPrice);
+}
+
+// Feature 11: Calculate Total Inventory Value
+
+function getInventoryValue() {
+  return mobiles.reduce((total, mobile) => {
+    return total + mobile.price;
+  }, 0);
+}
+
 // Display Results
 
-console.log("Feature 2 - Second Commit");
+console.log("Feature 3 - Third Commit");
 
-console.log(addUser({
-  id: 6,
-  name: "Rohit",
-  age: 24,
-  city: "Lucknow",
-  role: "Developer",
-  status: "Active",
-  email: "rohit@gmail.com"
+console.log(updateUser(1, {
+  city: "Delhi",
+  email: "rahul.new@gmail.com"
 }));
 
-console.log(addMobile({
-  id: 105,
-  brand: "Redmi",
-  model: "Redmi A4",
-  price: 8499,
-  storage: "128GB",
-  ram: "4GB",
-  discount: 500,
-  status: "Available"
-}));
+console.log(deleteUser(6));
 
-console.log("Active Users:", getActiveUsers());
+console.log(updateMobilePrice(101, 13999));
 
-console.log("All Users:", users);
+console.log("Mobiles Under 15000:", filterMobiles(15000));
 
-console.log("All Mobiles:", mobiles);
+console.log("Total Inventory Value:", getInventoryValue());
+
+console.log("Updated Users:", users);
+
+console.log("Updated Mobiles:", mobiles);
