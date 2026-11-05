@@ -1,7 +1,7 @@
-// Feature 1 - First Commit
+// Feature 2 - Second Commit
 // Branch: feature-add
-// Created from: Version 4
-// This is the first feature added after Version 4.
+// Previous Commit: Feature 1
+// This commit adds new user and mobile functionality.
 
 // User Data
 
@@ -85,6 +85,16 @@ const mobiles = [
     ram: "8GB",
     discount: 1500,
     status: "Available"
+  },
+  {
+    id: 104,
+    brand: "Redmi",
+    model: "Redmi Note 14 Pro",
+    price: 24999,
+    storage: "256GB",
+    ram: "8GB",
+    discount: 2000,
+    status: "Available"
   }
 ];
 
@@ -116,16 +126,53 @@ function getFinalPrice(mobileId) {
   return mobile.price - mobile.discount;
 }
 
+// Feature 4: Add New User
+
+function addUser(user) {
+  users.push(user);
+  return "User added successfully";
+}
+
+// Feature 5: Add New Mobile
+
+function addMobile(mobile) {
+  mobiles.push(mobile);
+  return "Mobile added successfully";
+}
+
+// Feature 6: Get All Active Users
+
+function getActiveUsers() {
+  return users.filter(user => user.status === "Active");
+}
+
 // Display Results
 
-console.log("Feature 1 - First Commit");
+console.log("Feature 2 - Second Commit");
+
+console.log(addUser({
+  id: 6,
+  name: "Rohit",
+  age: 24,
+  city: "Lucknow",
+  role: "Developer",
+  status: "Active",
+  email: "rohit@gmail.com"
+}));
+
+console.log(addMobile({
+  id: 105,
+  brand: "Redmi",
+  model: "Redmi A4",
+  price: 8499,
+  storage: "128GB",
+  ram: "4GB",
+  discount: 500,
+  status: "Available"
+}));
+
+console.log("Active Users:", getActiveUsers());
 
 console.log("All Users:", users);
 
-console.log("All Redmi Mobiles:", mobiles);
-
-console.log("User Search:", searchUser("Chandan"));
-
-console.log("Mobile Search:", searchMobile("Redmi Note 13"));
-
-console.log("Final Mobile Price:", getFinalPrice(101));
+console.log("All Mobiles:", mobiles);
