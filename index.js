@@ -1,4 +1,4 @@
-// Version 2 - Second Version
+// Version 3 - Third Version
 
 const users = [
   {
@@ -31,5 +31,25 @@ const users = [
   }
 ];
 
-console.log("Version 2 - Added More Users");
+// Redmi Mobile Data
+
+const mobiles = [
+  {
+    id: 101,
+    brand: "Redmi",
+    model: "Redmi Note 13",
+    price: 15999,
+    storage: "128GB"
+  },
+  {
+    id: 102,
+    brand: "Redmi",
+    model: "Redmi 13C",
+    price: 8999,
+    storage: "128GB"
+  }
+];
+
+console.log("Version 3 - User and Redmi Mobile Data");
 console.log(users);
+console.log(mobiles);
