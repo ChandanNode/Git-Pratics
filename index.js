@@ -1,4 +1,9 @@
-// Version 4 - Fourth Version
+// Feature 1 - First Commit
+// Branch: feature-add
+// Created from: Version 4
+// This is the first feature added after Version 4.
+
+// User Data
 
 const users = [
   {
@@ -7,7 +12,8 @@ const users = [
     age: 20,
     city: "Patna",
     role: "Student",
-    status: "Active"
+    status: "Active",
+    email: "rahul@gmail.com"
   },
   {
     id: 2,
@@ -15,7 +21,8 @@ const users = [
     age: 22,
     city: "Delhi",
     role: "Developer",
-    status: "Active"
+    status: "Active",
+    email: "amit@gmail.com"
   },
   {
     id: 3,
@@ -23,7 +30,8 @@ const users = [
     age: 21,
     city: "Mumbai",
     role: "Designer",
-    status: "Active"
+    status: "Active",
+    email: "neha@gmail.com"
   },
   {
     id: 4,
@@ -31,7 +39,8 @@ const users = [
     age: 23,
     city: "Jaipur",
     role: "Teacher",
-    status: "Active"
+    status: "Active",
+    email: "priya@gmail.com"
   },
   {
     id: 5,
@@ -39,11 +48,12 @@ const users = [
     age: 19,
     city: "Patna",
     role: "Developer",
-    status: "Active"
+    status: "Active",
+    email: "chandan@gmail.com"
   }
 ];
 
-// Updated Redmi Mobile Data
+// Redmi Mobile Data
 
 const mobiles = [
   {
@@ -53,6 +63,7 @@ const mobiles = [
     price: 14999,
     storage: "128GB",
     ram: "6GB",
+    discount: 1000,
     status: "Available"
   },
   {
@@ -62,6 +73,7 @@ const mobiles = [
     price: 8999,
     storage: "128GB",
     ram: "4GB",
+    discount: 500,
     status: "Available"
   },
   {
@@ -71,10 +83,49 @@ const mobiles = [
     price: 17999,
     storage: "256GB",
     ram: "8GB",
+    discount: 1500,
     status: "Available"
   }
 ];
 
-console.log("Version 4 - Updated User and Redmi Data");
-console.log(users);
-console.log(mobiles);
+// Feature 1: Search User By Name
+
+function searchUser(name) {
+  return users.find(user =>
+    user.name.toLowerCase() === name.toLowerCase()
+  );
+}
+
+// Feature 2: Search Mobile By Model
+
+function searchMobile(model) {
+  return mobiles.find(mobile =>
+    mobile.model.toLowerCase() === model.toLowerCase()
+  );
+}
+
+// Feature 3: Calculate Mobile Final Price
+
+function getFinalPrice(mobileId) {
+  const mobile = mobiles.find(item => item.id === mobileId);
+
+  if (!mobile) {
+    return "Mobile not found";
+  }
+
+  return mobile.price - mobile.discount;
+}
+
+// Display Results
+
+console.log("Feature 1 - First Commit");
+
+console.log("All Users:", users);
+
+console.log("All Redmi Mobiles:", mobiles);
+
+console.log("User Search:", searchUser("Chandan"));
+
+console.log("Mobile Search:", searchMobile("Redmi Note 13"));
+
+console.log("Final Mobile Price:", getFinalPrice(101));
