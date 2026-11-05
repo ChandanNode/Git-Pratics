@@ -1,4 +1,9 @@
-// Version 4 - Fourth Version
+// Version 5 - Fifth Version
+// Branch: main
+// Previous Version: Version 4
+// This version adds additional user and mobile details.
+
+// User Data
 
 const users = [
   {
@@ -7,7 +12,10 @@ const users = [
     age: 20,
     city: "Patna",
     role: "Student",
-    status: "Active"
+    status: "Active",
+    phone: "9876543210",
+    email: "rahul@gmail.com",
+    createdAt: "2026-10-01"
   },
   {
     id: 2,
@@ -15,7 +23,10 @@ const users = [
     age: 22,
     city: "Delhi",
     role: "Developer",
-    status: "Active"
+    status: "Active",
+    phone: "9876543211",
+    email: "amit@gmail.com",
+    createdAt: "2026-10-02"
   },
   {
     id: 3,
@@ -23,7 +34,10 @@ const users = [
     age: 21,
     city: "Mumbai",
     role: "Designer",
-    status: "Active"
+    status: "Active",
+    phone: "9876543212",
+    email: "neha@gmail.com",
+    createdAt: "2026-10-03"
   },
   {
     id: 4,
@@ -31,7 +45,10 @@ const users = [
     age: 23,
     city: "Jaipur",
     role: "Teacher",
-    status: "Active"
+    status: "Active",
+    phone: "9876543213",
+    email: "priya@gmail.com",
+    createdAt: "2026-10-04"
   },
   {
     id: 5,
@@ -39,11 +56,14 @@ const users = [
     age: 19,
     city: "Patna",
     role: "Developer",
-    status: "Active"
+    status: "Active",
+    phone: "9876543214",
+    email: "chandan@gmail.com",
+    createdAt: "2026-10-05"
   }
 ];
 
-// Updated Redmi Mobile Data
+// Redmi Mobile Data
 
 const mobiles = [
   {
@@ -53,6 +73,8 @@ const mobiles = [
     price: 14999,
     storage: "128GB",
     ram: "6GB",
+    color: "Black",
+    stock: 15,
     status: "Available"
   },
   {
@@ -62,6 +84,8 @@ const mobiles = [
     price: 8999,
     storage: "128GB",
     ram: "4GB",
+    color: "Blue",
+    stock: 20,
     status: "Available"
   },
   {
@@ -71,10 +95,69 @@ const mobiles = [
     price: 17999,
     storage: "256GB",
     ram: "8GB",
+    color: "Green",
+    stock: 10,
+    status: "Available"
+  },
+  {
+    id: 104,
+    brand: "Redmi",
+    model: "Redmi Note 14 Pro",
+    price: 24999,
+    storage: "256GB",
+    ram: "8GB",
+    color: "Titan Black",
+    stock: 8,
     status: "Available"
   }
 ];
 
-console.log("Version 4 - Updated User and Redmi Data");
-console.log(users);
-console.log(mobiles);
+// Feature 1: Get User By ID
+
+function getUserById(userId) {
+  return users.find(user => user.id === userId);
+}
+
+// Feature 2: Get Mobile By ID
+
+function getMobileById(mobileId) {
+  return mobiles.find(mobile => mobile.id === mobileId);
+}
+
+// Feature 3: Get Available Mobiles
+
+function getAvailableMobiles() {
+  return mobiles.filter(mobile => mobile.status === "Available");
+}
+
+// Feature 4: Calculate Total Mobile Stock
+
+function getTotalStock() {
+  return mobiles.reduce((total, mobile) => {
+    return total + mobile.stock;
+  }, 0);
+}
+
+// Feature 5: Calculate Total Users
+
+function getTotalUsers() {
+  return users.length;
+}
+
+// Display Results
+
+console.log("Version 5 - Fifth Version");
+
+console.log("User Details:", getUserById(5));
+
+console.log("Mobile Details:", getMobileById(101));
+
+console.log("Available Mobiles:", getAvailableMobiles());
+
+console.log("Total Mobile Stock:", getTotalStock());
+
+console.log("Total Users:", getTotalUsers());
+
+console.log("All Users:", users);
+
+console.log("All Mobiles:", mobiles);
