@@ -1,4 +1,4 @@
-// Version 1 - Initial Version
+// Version 2 - Second Version
 
 const users = [
   {
@@ -14,8 +14,22 @@ const users = [
     age: 22,
     city: "Delhi",
     role: "Developer"
+  },
+  {
+    id: 3,
+    name: "Neha",
+    age: 21,
+    city: "Mumbai",
+    role: "Designer"
+  },
+  {
+    id: 4,
+    name: "Priya",
+    age: 23,
+    city: "Jaipur",
+    role: "Teacher"
   }
 ];
 
-console.log("Version 1 - Initial User Data");
+console.log("Version 2 - Added More Users");
 console.log(users);
